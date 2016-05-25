@@ -11,15 +11,15 @@ default: &default
 
 development:
   <<: *default
-  database: ticktee_development
+  database: ticketee_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: ticktee_test
+  database: ticketee_test
 
 production:
   <<: *default
-  database: ticktee_production
+  database: ticketee_production
