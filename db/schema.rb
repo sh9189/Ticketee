@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526015612) do
+ActiveRecord::Schema.define(version: 20160526041647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20160526015612) do
     t.integer  "project_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "author_id"
+    t.index ["author_id"], name: "index_tickets_on_author_id", using: :btree
     t.index ["project_id"], name: "index_tickets_on_project_id", using: :btree
   end
 
@@ -50,4 +52,5 @@ ActiveRecord::Schema.define(version: 20160526015612) do
   end
 
   add_foreign_key "tickets", "projects"
+  add_foreign_key "tickets", "users", column: "author_id"
 end
