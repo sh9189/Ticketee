@@ -25,9 +25,14 @@ gem 'jbuilder', '~> 2.0'
 # Use bootstrap for css
 gem "bootstrap-sass", "~> 3.3"
 gem "font-awesome-rails", "~> 4.6"
+# Use simple form for easier forms
 gem 'simple_form'
+# Use devise for user authentication
 gem 'devise'
-gem "pundit"
+# Use pundit for policy/role based authorization
+gem 'pundit'
+# Use carrier wave for file uploads
+gem 'carrierwave'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
