@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601202758) do
+ActiveRecord::Schema.define(version: 20160601205032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,9 @@ ActiveRecord::Schema.define(version: 20160601202758) do
     t.integer  "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "state_id"
     t.index ["author_id"], name: "index_comments_on_author_id", using: :btree
+    t.index ["state_id"], name: "index_comments_on_state_id", using: :btree
     t.index ["ticket_id"], name: "index_comments_on_ticket_id", using: :btree
   end
 
@@ -51,6 +53,11 @@ ActiveRecord::Schema.define(version: 20160601202758) do
     t.index ["user_id"], name: "index_roles_on_user_id", using: :btree
   end
 
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -58,8 +65,10 @@ ActiveRecord::Schema.define(version: 20160601202758) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "author_id"
+    t.integer  "state_id"
     t.index ["author_id"], name: "index_tickets_on_author_id", using: :btree
     t.index ["project_id"], name: "index_tickets_on_project_id", using: :btree
+    t.index ["state_id"], name: "index_tickets_on_state_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,10 +91,12 @@ ActiveRecord::Schema.define(version: 20160601202758) do
   end
 
   add_foreign_key "attachments", "tickets"
+  add_foreign_key "comments", "states"
   add_foreign_key "comments", "tickets"
   add_foreign_key "comments", "users", column: "author_id"
   add_foreign_key "roles", "projects"
   add_foreign_key "roles", "users"
   add_foreign_key "tickets", "projects"
+  add_foreign_key "tickets", "states"
   add_foreign_key "tickets", "users", column: "author_id"
 end
