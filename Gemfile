@@ -57,7 +57,9 @@ group :development do
 end
 
 group :test do
+  gem 'poltergeist'
   gem 'capybara'
+  gem 'database_cleaner'
   gem "factory_girl_rails", "~> 4.7"
 end
 
