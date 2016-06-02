@@ -34,6 +34,8 @@ gem 'devise'
 gem 'pundit'
 # Use carrier wave for file uploads
 gem 'carrierwave'
+# JSON API serialization
+gem "active_model_serializers"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
