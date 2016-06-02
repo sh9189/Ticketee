@@ -57,6 +57,7 @@ group :development do
 end
 
 group :test do
+  gem 'email_spec'
   gem 'poltergeist'
   gem 'capybara'
   gem 'database_cleaner'
