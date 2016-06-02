@@ -51,4 +51,5 @@ RSpec.configure do |config|
   # include warden helpers for testing sign out
   config.include Warden::Test::Helpers, type: :feature
   config.after(type: :feature) { Warden.test_reset! }
+  config.include Devise::TestHelpers, type: :controller
 end
