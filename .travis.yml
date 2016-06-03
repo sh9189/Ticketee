@@ -1,12 +1,19 @@
 language: ruby
 rvm: 2.3.0
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rspec
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rspec
 cache: bundler
-bundler_args: --without production
+bundler_args: "--without production"
 services:
-  - postgresql
+- postgresql
 before_script:
-  - cp config/.travis.database.yml config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
+- cp config/.travis.database.yml config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: WEJ0IBD/SHaBQXiyGs3r/DbK/Dg76PvsGCo81fPnZFIK86W5i8uLpjXPX/vo0m0DfP1BOiyqCxnIr3Va9CxDY1keaDoqVFl+LXCvubIPAYy3W2rjXd6pZNEFeo2tGLs3OTMI+wSWr02RN+rjQzJBPTCcDU1wz98U79wctNL/5lxOCebt643K89tcf06ujfgOsGWNuc6bPjxxH7OkEJuu7Wfp2SLZwjfqwj+wrRxllccO8EkKbn48Ul3w2o/9drzzN2dJV3CW5OHuJ6CBcVx6oNbixAXEnWH1IUB6KlDizjygglpFfWfhJzHmlHtMWhUxasWQTooeabbQYV5Vif9X+RNDXoi3ceT4xHxDyVdg87GibpRbQ+w6SlZMhw7AT4KdAuOhwWXQtrW6+t3lpOj8nZNHphVIBLYUguyB3Ex7hLCrB871Okwsfi7VmBnpk2odgT3Col55V/zq7dBsNjvd/CW3o3N9gsjvy0u0OXtAxxRyoMZSu9PaWTxWaWRycp7YZ83O5MmzKf83b1LFRIiJ436tyj64O9CpIVz+WEL8ylgxQXort98MhEg2F2smjQY1RTCS9FSas+yOl8IATUaCNvkEotLEnQaI/5OyKikWsGGEbyJ0mu3h2+J6QV3AXtISGkGaQJUcVN/WprHNSstuc8RpAdK7ezJsbPJrQVBsKVw=
+  app: enigmatic-island-90567
+  on:
+    repo: sh9189/Ticketee
