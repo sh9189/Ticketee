@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/sinatra/sinatra.git
+  revision: 5e9e23621c1f6abbd793b46452cb11ae8ca1277e
+  specs:
+    sinatra (2.0.0.pre.alpha)
+      mustermann (~> 0.4)
+      rack (= 2.0.0.rc1)
+      rack-protection (~> 1.5)
+      tilt (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -44,14 +54,14 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (7.0.0)
-    autoprefixer-rails (6.3.6.1)
+    autoprefixer-rails (6.3.6.2)
       execjs
     bcrypt (3.1.11)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.2)
-    byebug (9.0.4)
+    byebug (9.0.5)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
@@ -101,7 +111,7 @@ GEM
       activesupport (>= 4.1.0)
     htmlentities (4.3.4)
     i18n (0.7.0)
-    jbuilder (2.4.1)
+    jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
     jquery-rails (4.1.1)
@@ -126,6 +136,8 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    mustermann (0.4.0)
+      tool (~> 0.2)
     nio4r (1.2.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -141,6 +153,8 @@ GEM
       activesupport (>= 3.0.0)
     rack (2.0.0.rc1)
       json
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.rc1)
@@ -220,7 +234,8 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.19.1)
     thread_safe (0.3.5)
-    tilt (2.0.4)
+    tilt (2.0.5)
+    tool (0.2.3)
     turbolinks (5.0.0.beta2)
       turbolinks-source
     turbolinks-source (5.0.0.beta5)
@@ -267,6 +282,7 @@ DEPENDENCIES
   rspec-rails (= 3.5.0.beta3)
   sass-rails (~> 5.0)
   simple_form
+  sinatra!
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5.x)

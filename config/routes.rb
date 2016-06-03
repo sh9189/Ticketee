@@ -27,6 +27,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    namespace :v2 do
+      mount API::V2::Tickets, at: "/projects/:project_id/tickets"
+    end
+  end
+
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'projects#index'
